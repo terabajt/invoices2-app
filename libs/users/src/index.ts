@@ -16,3 +16,4 @@ export * from './lib/services/jwt.interceptor';
 export * from './lib/shared/logged-user-info/logged-user-info.component';
 export * from './lib/pages/login/login.component';
 export * from './lib/services/localstorage.services'
+export * from './environments/environment'

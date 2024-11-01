@@ -1,10 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
-import { Observable, map } from 'rxjs';
-import { environment } from '@invoice2-team/invoices';
+import { Observable } from 'rxjs';
+import { environment } from '@invoice2-team/users';
 import { UsersFacade } from '../state/users.facade';
 import * as countriesLib from 'i18n-iso-countries';
+import { ActivationResponse } from '../models/types';
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
 
@@ -62,7 +63,8 @@ export class UsersService {
     isCurrentUserAuth() {
         return this.usersFacade.isAuthenticated$;
     }
-    activateUser(token: string) {
-        return this.http.get(`${this.apiURLActivation}?token=${token}`);
-    }
+  activateUser(token: string): Observable<ActivationResponse> {
+    return this.http.get<ActivationResponse>(`${this.apiURLActivation}?token=${token}`);
+  }
+
 }

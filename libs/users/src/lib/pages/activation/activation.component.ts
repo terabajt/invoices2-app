@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { UsersService } from '../../services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ActivationResponse } from '../../models/types';
 
 @Component({
     selector: 'invoice2-team-activation',
@@ -33,7 +34,7 @@ export class ActivationComponent implements OnInit {
         this.route.params.pipe().subscribe((params) => {
             if (params['token']) {
                 this.userService.activateUser(params['token']).subscribe({
-                    next: (response: any) => {
+                    next: (response: ActivationResponse ) => {
                         this.isInfo = true;
                         if (response.message === 'User activated successfully') this.infoMessage = 'Użytkownik został aktywowany prawidłowo.';
                         setTimeout(() => {
