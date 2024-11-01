@@ -12,7 +12,7 @@ export class AuthGuard implements CanActivate {
         private localStorageToken: LocalstorageService
     ) {}
 
-    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
+    canActivate(): boolean | UrlTree | Observable<boolean | UrlTree> | Promise<boolean | UrlTree> {
         const token = this.localStorageToken.getToken();
         if (token) {
             const tokenDecode = JSON.parse(atob(token.split('.')[1]));

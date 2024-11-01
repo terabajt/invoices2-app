@@ -9,7 +9,7 @@
         }
     },
     "sourceRoot": "apps/user-panel/src",
-    "prefix": "app",
+    "prefix": "invoice2-team",
     "targets": {
         "build": {
             "executor": "@angular-devkit/build-angular:browser",

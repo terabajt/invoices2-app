@@ -1,12 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '../../../../../environments/environment.development';
+import { environment } from '@invoice2-team/invoices';
 import { Observable, throwError } from 'rxjs';
 import { Invoice } from '../models/invoice';
 import { EntryItem } from '../models/entryItem';
-import { LocalstorageService } from 'libs/users/src/lib/services/localstorage.services';
+import { LocalstorageService } from '@invoice2-team/users';
 import { catchError } from 'rxjs/operators';
-
 import mongoose from 'mongoose';
 
 @Injectable({

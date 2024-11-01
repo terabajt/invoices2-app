@@ -11,7 +11,6 @@ import { Subject } from 'rxjs';
 export class LoggedUserInfoComponent implements OnInit {
     user: User | null = null;
     isLoading = true;
-    private destroy$: Subject<void> = new Subject<void>();
 
     constructor(private usersService: UsersService) {}
 
@@ -19,10 +18,6 @@ export class LoggedUserInfoComponent implements OnInit {
         this._initUser();
     }
 
-    ngOnDestroy(): void {
-        this.destroy$.next();
-        this.destroy$.complete();
-    }
 
     private _initUser() {
         this.usersService.observeCurrentUser().subscribe((user) => {

@@ -2,16 +2,17 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/user';
 import { Observable, map } from 'rxjs';
-import { environment } from '../../../../../environments/environment.development';
+import { environment } from '@invoice2-team/invoices';
 import { UsersFacade } from '../state/users.facade';
 import * as countriesLib from 'i18n-iso-countries';
 declare const require: (arg0: string) => countriesLib.LocaleData;
-// import { UsersFacade } from '../state/users.facade';
+
 
 @Injectable({
     providedIn: 'root'
 })
 export class UsersService {
+
     initAppSession() {
         this.usersFacade.buildUserSession();
     }
@@ -54,9 +55,6 @@ export class UsersService {
         return this.http.put<User>(`${this.apiURLUsers}/${user.id}`, user);
     }
 
-    getUsersCount(): Observable<number> {
-        return this.http.get<number>(`${this.apiURLUsers}/get/count`).pipe(map((res: any) => res.userCount));
-    }
     observeCurrentUser() {
         return this.usersFacade.currentUser$;
     }

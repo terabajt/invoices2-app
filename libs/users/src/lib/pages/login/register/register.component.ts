@@ -15,7 +15,6 @@ import { UsersService } from '../../../services/users.service';
 export class RegisterComponent implements OnInit {
     floatLabelControl = new FormControl('auto' as FloatLabelType);
     loginFormGroup: FormGroup = new FormGroup({});
-    endsubs$: Subject<any> = new Subject();
     authError = false;
     errorMessage = 'E-mail albo hasło jest nieprawidłowe';
     footerYear: any;
@@ -48,9 +47,6 @@ export class RegisterComponent implements OnInit {
     }
     getFloatLabelValue(): FloatLabelType {
         return this.floatLabelControl.value || 'auto';
-    }
-    ngOnDestroy(): void {
-        this.endsubs$.complete();
     }
     onRegister() {
         const loginData = {
