@@ -1,0 +1,132 @@
+<div *ngIf="isLoadingResults">
+  <mat-spinner class="spinner" style="margin:0 auto;"></mat-spinner>
+</div>
+
+<mat-card class="invoice-card" *ngIf="form">
+  <mat-card-header>
+    <mat-card-title>Podgląd faktury</mat-card-title>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button mat-raised-button color="primary" (click)="onSaveForm()" [disabled]="form.invalid">
+      Dodaj</button>
+    <button mat-raised-button color="warn" (click)="showDialog()">Anuluj</button>
+  </mat-card-actions>
+  <mat-card-content>
+
+    <div class="form-container">
+      <form [formGroup]="form">
+        <div class="form-fields row">
+          <mat-form-field class="col-12 col-md-3" [floatLabel]="getFloatLabelValue()">
+            <mat-label>Numer Faktury</mat-label>
+            <input formControlName="invoiceNumber" matInput placeholder="Numer faktury">
+            <mat-error>Proszę podać numer faktury.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="col-12 col-md-3" [floatLabel]="getFloatLabelValue()">
+            <mat-label>Klient</mat-label>
+            <mat-select formControlName="customer" name="customer">
+              <mat-option *ngFor="let customer of customersName" [value]="customer.id">{{ customer.name }}</mat-option>
+            </mat-select>
+            <mat-error>Proszę wybrać klienta.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="col-6 col-md-3" [floatLabel]="getFloatLabelValue()">
+            <mat-label>Data wystawienia</mat-label>
+            <input formControlName="invoiceDate" matInput [matDatepicker]="invoiceDate" placeholder="Data wystawienia">
+            <mat-datepicker-toggle matSuffix [for]="invoiceDate"></mat-datepicker-toggle>
+            <mat-datepicker #invoiceDate></mat-datepicker>
+            <mat-error>Proszę wybrać datę wystawienia faktury.</mat-error>
+          </mat-form-field>
+          <mat-form-field class="col-6 col-md-3" [floatLabel]="getFloatLabelValue()">
+            <mat-label>Data płatności</mat-label>
+            <input formControlName="dueDate" matInput [matDatepicker]="dueDatePicker" placeholder="Data płatności">
+            <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+            <mat-datepicker #dueDatePicker></mat-datepicker>
+            <mat-error>Proszę wybrać datę płatności.</mat-error>
+
+          </mat-form-field>
+        </div>
+        <mat-card class="invoice-card-items">
+          <mat-card-header>
+            <mat-card-title>Pozycje faktury</mat-card-title>
+          </mat-card-header>
+          <mat-card-actions align="end">
+            <button mat-raised-button color="accent" (click)="addEntryItem()">Dodaj pozycje</button>
+          </mat-card-actions>
+          <div class="form-fields row" formArrayName="entryItems" style="font-size: 18px">
+            <ng-container *ngFor="let item of getControls(); let i = index">
+              <div [formGroupName]="i">
+                <div class="row">
+                  <div class="col-1 i-item">
+                    <span>{{ i + 1 + '.' }}</span>
+                  </div>
+                  <mat-form-field class="col-2">
+                    <mat-label>Nazwa</mat-label>
+                    <input formControlName="nameEntry" matInput placeholder="Nazwa">
+                    <mat-error>Proszę podać nazwę pozycji.</mat-error>
+
+                  </mat-form-field>
+                  <mat-form-field class="col-2">
+                    <mat-label>Ilość</mat-label>
+                    <input type="number" formControlName="quantityEntry" matInput placeholder="Ilość">
+                    <mat-error>Proszę podać ilość.</mat-error>
+
+                  </mat-form-field>
+                  <mat-form-field class="col-2">
+                    <mat-label>Kwota NETTO</mat-label>
+                    <input type="number" step="0.01" formControlName="netAmountEntry" matInput
+                      placeholder="Kwota NETTO">
+                    <span matTextSuffix>zł&nbsp;</span>
+                    <mat-error>Proszę podać kwotę NETTO.</mat-error>
+
+                  </mat-form-field>
+                  <mat-form-field class="col-2">
+                    <mat-label>Stawka podatku</mat-label>
+                    <mat-select formControlName="taxEntry">
+                      <mat-option value="0">0%</mat-option>
+                      <mat-option value="7">7%</mat-option>
+                      <mat-option value="8">8%</mat-option>
+                      <mat-option value="23">23%</mat-option>
+                    </mat-select>
+                    <mat-error>Proszę wybrać VAT.</mat-error>
+
+                  </mat-form-field>
+                  <mat-form-field class="col-2">
+                    <mat-label>Kwota BRUTTO</mat-label>
+                    <input type="number" step="0.01" formControlName="grossEntry" matInput placeholder="Kwota BRUTTO">
+                    <span matTextSuffix>zł&nbsp;</span>
+                    <mat-error>Proszę wpisać kwotę BRUTTO.</mat-error>
+
+                  </mat-form-field>
+                  <div class="invoice-card-button col-1"> <button (click)="removeEntryItem(i)" mat-icon-button
+                      color="warn" aria-label="Usuń">
+                      <mat-icon>delete</mat-icon>
+                    </button></div>
+                </div>
+              </div>
+            </ng-container>
+          </div>
+        </mat-card>
+        <div class=" form-fields row justify-content-end">
+          <div class="col-2">
+            <h3>Podsumowanie:</h3>
+          </div>
+
+          <mat-form-field class="col-12 col-md-4 float-end" [floatLabel]="getFloatLabelValue()">
+            <mat-label>Kwota NETTO</mat-label>
+            <input step="0.01" formControlName="netAmountSum" matInput placeholder="Kwota NETTO" type="number">
+            <span matTextSuffix>zł&nbsp;</span>
+            <mat-error>Proszę wpisać kwotę NETTO.</mat-error>
+
+          </mat-form-field>
+          <mat-form-field class="col-12 col-md-4  float-end" [floatLabel]="getFloatLabelValue()">
+            <mat-label>Kwota BRUTTO</mat-label>
+            <input step="0.01" formControlName="grossSum" matInput type="number" placeholder="Kwota BRUTTO">
+            <span matTextSuffix>zł&nbsp;</span>
+            <mat-error>Proszę wpisać kwotę BRUTTO.</mat-error>
+          </mat-form-field>
+        </div>
+      </form>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>

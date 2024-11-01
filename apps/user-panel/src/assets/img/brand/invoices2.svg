@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   viewBox="0 0 608 134"
+   version="1.1"
+   id="svg47"
+   sodipodi:docname="coreui-angular.svg"
+   inkscape:version="1.2.2 (b0a84865, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview49"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     showgrid="false"
+     inkscape:zoom="2.1052632"
+     inkscape:cx="314.6875"
+     inkscape:cy="143.2125"
+     inkscape:window-width="1920"
+     inkscape:window-height="947"
+     inkscape:window-x="0"
+     inkscape:window-y="25"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="Warstwa_1" />
+  <defs
+     id="defs4">
+    <style
+       id="style2">
+      .cls-1 {
+        fill: #cf2f4c;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <title
+     id="title6">coreui angular</title>
+  <g
+     id="Warstwa_1"
+     data-name="Warstwa 1"
+     style="fill:#000000">
+    <g
+       id="g22"
+       style="fill:#000000" />
+    <g
+       id="g44"
+       style="fill:#e6e6e6">
+      <g
+         id="g28"
+         style="fill:#e6e6e6">
+        <path
+           class="cls-2"
+           d="m 99.835,36.0577 -39,-22.5167 c -3.712813,-2.143594 -8.287187,-2.143594 -12,0 l -39,22.5166 c -3.7077398,2.148709 -5.9930674,6.107049 -6,10.3924 v 45.0333 c 0.00685,4.285349 2.292201,8.243699 6,10.3923 l 39,22.5167 c 3.712813,2.14359 8.287187,2.14359 12,0 L 86.959297,109.3094 99.835,101.8756 c 3.70783,-2.148571 5.9932,-6.10694 6,-10.3923 V 46.45 c -0.007,-4.285343 -2.29222,-8.243684 -6,-10.3923 z m -2,55.4256 c -10e-7,1.429062 -0.762396,2.749569 -2,3.4641 l -39,22.5167 c -1.237637,0.71441 -2.762363,0.71441 -4,0 l -39,-22.5167 c -1.237604,-0.714531 -1.999999,-2.035038 -2,-3.4641 V 46.45 c -3.5e-5,-1.429098 0.762365,-2.749651 2,-3.4642 l 39,-22.5166 c 1.237604,-0.714531 2.762396,-0.714531 4,0 l 39,22.5166 c 1.237635,0.714549 2.000035,2.035102 2,3.4642 z"
+           id="path24"
+           style="fill:#e6e6e6"
+           sodipodi:nodetypes="ccccccccccccccscccccccccccs" />
+      </g>
+      <text
+         xml:space="preserve"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;font-family:Montserrat;-inkscape-font-specification:Montserrat;fill:#e6e6e6;fill-opacity:1"
+         x="15.200001"
+         y="85.5"
+         id="text1869"><tspan
+           sodipodi:role="line"
+           id="tspan1867"
+           x="15.200001"
+           y="85.5"
+           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:48px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#e6e6e6">Inv</tspan></text>
+    </g>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.3333px;font-family:Montserrat;-inkscape-font-specification:Montserrat;fill:#ffffff"
+       x="122.55"
+       y="87.399994"
+       id="text413"
+       inkscape:highlight-color="#cf2f4c"><tspan
+         sodipodi:role="line"
+         id="tspan411"
+         x="122.55"
+         y="87.399994"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:53.3333px;font-family:Montserrat;-inkscape-font-specification:'Montserrat Bold';fill:#ffffff;fill-opacity:1">Invoices<tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Montserrat;-inkscape-font-specification:Montserrat;fill:#ffffff"
+   id="tspan1873">2</tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:32px;font-family:Montserrat;-inkscape-font-specification:Montserrat;fill:#f9f9f9;fill-opacity:1"
+       x="422.75"
+       y="38.950001"
+       id="text1877"><tspan
+         sodipodi:role="line"
+         id="tspan1875"
+         x="422.75"
+         y="38.950001"
+         style="font-size:32px;fill:#f9f9f9">Twój</tspan><tspan
+         sodipodi:role="line"
+         x="422.75"
+         y="78.949997"
+         id="tspan1879"
+         style="font-size:32px;fill:#f9f9f9">program</tspan><tspan
+         sodipodi:role="line"
+         x="422.75"
+         y="118.95"
+         id="tspan1881"
+         style="font-size:32px;fill:#f9f9f9">do faktur</tspan></text>
+  </g>
+</svg>

@@ -1,0 +1,31 @@
+//Base
+// @import '~normalize.css/normalize.css';
+@import './base/colors.scss';
+@import './base/fonts.scss';
+@import './base/mixins.scss';
+@import './base/print.scss';
+
+//Burger Menu
+@import './apps/invoice2/burger-menu.scss';
+
+//Libraries
+@import './base/configurations.scss';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
+
+//Shared
+@import './apps/invoice2/shell.scss';
+@import './apps/invoice2/dashboard.scss';
+@import './apps/invoice2/sidebar.scss';
+
+//Libs
+@import './libs/ui/ui.scss';
+@import './libs/users/users.scss';
+
+//View
+@import './apps/invoice2/invoices.scss';
+@import './apps/invoice2/invoice.scss';
+@import './apps/invoice2/customers.scss';
+
+//Spinner
+@import './apps/invoice2/spinner.scss';
+@import './base/loaders.scss';

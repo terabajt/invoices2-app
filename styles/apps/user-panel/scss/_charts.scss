@@ -1,0 +1,35 @@
+// temp fix .chartjs-tooltip-body-item
+
+.chartjs-tooltip-body-item > td, .ngx-charts > td {
+  padding-bottom: 0 !important;
+  padding-top: 0 !important;
+  font-size: smaller;
+}
+
+.ngx-charts{
+  margin-top: 20px;
+  margin-bottom: 20px;
+  background-color: white;
+}
+
+.ngx-charts-outer {
+  max-width: 80%!important;
+  width: 80% !important;
+  height: auto !important;
+
+}
+.custom-chart {
+  // height: calc(100% - 50px);
+  // max-height: 300px;
+
+}
+ngx-charts-pie-chart .ngx-charts-outer {
+  // margin: 0 auto;
+  // width: 50% !important;
+}
+
+.custom-chart-container {
+  overflow: auto;
+  max-height: 400px !important;
+}
+

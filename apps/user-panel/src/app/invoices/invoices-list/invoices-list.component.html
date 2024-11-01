@@ -1,0 +1,89 @@
+<mat-card class="invoices-card">
+  <mat-card-header>
+    <mat-card-title>Faktury</mat-card-title>
+    <mat-card-subtitle>Lista wszystkich faktur: <br /></mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-actions align="end">
+    <button class="invoices-card-addbutton" mat-raised-button color="primary" routerLink="/invoices/form/">Dodaj
+      Fakturę</button>
+  </mat-card-actions>
+  <mat-card-content>
+    <div class="mat-elevation-z8">
+
+      <mat-form-field>
+        <mat-label>Filtr</mat-label>
+        <input matInput (keyup)="applyFilterNumberOfInvoice($event)" placeholder="Wpisz numer Faktury..." #input>
+      </mat-form-field>
+      <mat-form-field>
+        <mat-label>Wybierz miesiąc</mat-label>
+        <mat-select (selectionChange)="onMonthSelectedFilter($event)">
+          <mat-option *ngFor="let month of months" [value]="month.monthNumber">
+            {{ month.month }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+      <div class="mat-elevation-z8" style="overflow-x: auto;">
+
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 mat-table-responsive" matSort
+          matSortActive="invoiceNumber, invoiceDate" matSortDisableClear matSortDirection="desc">
+
+          <ng-container matColumnDef="invoiceNumber">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header> Numer Faktury </th>
+            <td mat-cell *matCellDef="let invoice"> {{invoice.invoiceNumber}} </td>
+          </ng-container>
+          <ng-container matColumnDef="invoiceDate">
+            <th mat-header-cell *matHeaderCellDef mat-sort-header disableClear>Data faktury</th>
+            <td mat-cell *matCellDef="let invoice"> {{invoice.invoiceDate | date }} </td>
+          </ng-container>
+          <ng-container matColumnDef="customer">
+            <th mat-header-cell *matHeaderCellDef> Klient </th>
+            <td mat-cell *matCellDef="let invoice"> {{invoice.customer.name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="grossSum">
+            <th mat-header-cell *matHeaderCellDef> Kwota BRUTTO </th>
+            <td mat-cell *matCellDef="let invoice"> {{invoice.grossSum | currency}} </td>
+          </ng-container>
+          <ng-container matColumnDef="options">
+            <th mat-header-cell *matHeaderCellDef aria-label="row actions">Opcje</th>
+            <td mat-cell *matCellDef="let invoice">
+              <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Opcje">
+                <mat-icon mat-icon>more_vert</mat-icon>
+              </button>
+              <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLink]="['/invoices/form/'+ invoice.id]">
+                  <mat-icon color="primary">more</mat-icon>
+                  <span>Edycja</span>
+                </button>
+                <button mat-menu-item (click)="onDeleteInvoice(invoice._id)">
+                  <mat-icon color="warn">delete</mat-icon>
+                  <span>Usuń</span>
+                </button>
+                <button mat-menu-item [routerLink]="['/print/'+ invoice.id]">
+                  <mat-icon color="secondary">print</mat-icon>
+                  <span>Drukuj</span>
+                </button>
+                <button mat-menu-item [routerLink]="['/invoices/form/copy/'+ invoice.id]">
+                  <mat-icon color="primary">file_copy</mat-icon>
+                  <span>Wystaw na podstawie</span>
+                </button>
+              </mat-menu>
+            </td>
+          </ng-container>
+
+
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons aria-label="Faktur na stronie">
+        </mat-paginator>
+      </div>
+      <div *ngIf="!invoices" class="p-4 ">Nie masz jeszcze faktur w systemie. Dodaj fakturę korzystając z
+        przycisku
+        "Dodaj Fakturę".
+      </div>
+    </div>
+  </mat-card-content>
+  <mat-card-actions>
+  </mat-card-actions>
+</mat-card>

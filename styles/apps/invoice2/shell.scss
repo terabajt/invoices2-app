@@ -1,0 +1,14 @@
+.invoice2 {
+  &-wrapper {
+    height: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  &-main{
+    position: relative;
+    width: 100%;
+    margin-left: 0;
+    align-self: start;
+    padding: 30px;
+  }
+}

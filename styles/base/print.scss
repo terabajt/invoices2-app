@@ -1,0 +1,12 @@
+@media print {
+  .btn,
+  .invoice2-sidebar {
+      display: none !important;
+  }
+  .invoice-print {
+    position: absolute;
+    width: 100%;
+    left: 10%;
+    top: 0;
+  }
+}

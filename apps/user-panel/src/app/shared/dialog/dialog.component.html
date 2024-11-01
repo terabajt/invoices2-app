@@ -1,0 +1,8 @@
+<h2 mat-dialog-title>Uwaga!</h2>
+<mat-dialog-content>
+  {{data.message}}
+</mat-dialog-content>
+<mat-dialog-actions>
+  <button mat-button (click)="onCancelClick()">Anuluj</button>
+  <button mat-button color="warn" (click)="onOkClick()">OK</button>
+</mat-dialog-actions>
