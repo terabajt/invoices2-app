@@ -1,12 +1,20 @@
-.mat-mdc-row, .mdc-data-table__content {
-  font-size: 0.8rem !important;
+.mat-mdc-row,
+.mdc-data-table__content {
+    font-size: 0.8rem !important;
 }
 @media screen and (max-width: 980px) {
-  .mat-mdc-row, .mdc-data-table__content, .mat-mdc-option, .mat-mdc-raised-button .mdc-button__label {
-    font-size: 0.6rem !important;
-  }
-  .mat-mdc-header-row, .mat-mdc-form-field, .mdc-text-field--filled, .mdc-floating-label, .mat-mdc-header-cell, .mat-mdc-card-title
-    {
-    font-size: 0.8rem !important;
-  }
+    .mat-mdc-row,
+    .mdc-data-table__content,
+    .mat-mdc-option,
+    .mat-mdc-raised-button .mdc-button__label {
+        font-size: 0.6rem !important;
+    }
+    .mat-mdc-header-row,
+    .mat-mdc-form-field,
+    .mdc-text-field--filled,
+    .mdc-floating-label,
+    .mat-mdc-header-cell,
+    .mat-mdc-card-title {
+        font-size: 0.8rem !important;
+    }
 }

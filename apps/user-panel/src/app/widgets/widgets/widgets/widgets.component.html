@@ -1,14 +1,26 @@
 <c-card-body class="custom-chart-container">
-  <c-row>
-    <c-col sm="5" class="mb-4">
-      <h4 class="card-title mb-0" id="traffic">Zestawienie sprzedaży</h4>
-      <div class="small text-medium-emphasis">Suma z miesięcy</div>
-    </c-col>
-  </c-row>
-  <div #gridLeftColumn (load)="onGridLeftColumnLoad()">
-    <ngx-charts-bar-vertical [view]="[columnWidth, 400]" [results]="single" [xAxis]="true" [yAxis]="true"
-      [legend]="true" [showXAxisLabel]="true" [showYAxisLabel]="true" xAxisLabel="Miesiąc" yAxisLabel="Kwota [zł]"
-      class="mb-4 card mr-5 custom-chart" [legendPosition]="below" [yScaleMin]="yScaleConfig.min"> >
-    </ngx-charts-bar-vertical>
-  </div>
+    <c-row>
+        <c-col sm="5" class="mb-4">
+            <h4 class="card-title mb-0" id="traffic">Zestawienie sprzedaży</h4>
+            <div class="small text-medium-emphasis">Suma z miesięcy</div>
+        </c-col>
+    </c-row>
+    <div #gridLeftColumn (load)="onGridLeftColumnLoad()">
+        <ngx-charts-bar-vertical
+            [view]="[columnWidth, 400]"
+            [results]="single"
+            [xAxis]="true"
+            [yAxis]="true"
+            [legend]="true"
+            [showXAxisLabel]="true"
+            [showYAxisLabel]="true"
+            xAxisLabel="Miesiąc"
+            yAxisLabel="Kwota [zł]"
+            class="mb-4 card mr-5 custom-chart"
+            [legendPosition]="below"
+            [yScaleMin]="yScaleConfig.min"
+        >
+            >
+        </ngx-charts-bar-vertical>
+    </div>
 </c-card-body>

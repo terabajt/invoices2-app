@@ -1,12 +1,12 @@
-.customers-card{
-  mat-card-content{
-    padding-top: 20px;
-  }
-  tr:hover {
-    background: whitesmoke;
-  }
+.customers-card {
+    mat-card-content {
+        padding-top: 20px;
+    }
+    tr:hover {
+        background: whitesmoke;
+    }
 
-  tr:active {
-    background: #efefef;
-  }
+    tr:active {
+        background: #efefef;
+    }
 }

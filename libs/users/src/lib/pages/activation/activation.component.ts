@@ -15,7 +15,11 @@ export class ActivationComponent implements OnInit {
     isInfo!: boolean;
     infoMessage!: string;
 
-    constructor(private router: Router, private route: ActivatedRoute, private userService: UsersService) {}
+    constructor(
+        private router: Router,
+        private route: ActivatedRoute,
+        private userService: UsersService
+    ) {}
 
     ngOnInit(): void {
         this._getCurrentYear();

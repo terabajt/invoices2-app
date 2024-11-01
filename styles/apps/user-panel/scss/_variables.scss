@@ -306,7 +306,6 @@ $enable-deprecation-messages: false;
 //   100: 100%
 // );
 
-
 // Body
 //
 // Settings for the `<body>` element.
@@ -314,7 +313,6 @@ $enable-deprecation-messages: false;
 // $body-bg:                   $white;
 // $body-color:                $high-emphasis-dark;
 // $body-text-align:           null;
-
 
 // Links
 //
@@ -335,7 +333,6 @@ $enable-deprecation-messages: false;
 
 // $paragraph-margin-bottom:   1rem;
 
-
 // Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
@@ -355,7 +352,6 @@ $enable-deprecation-messages: false;
 // @include _assert-ascending($grid-breakpoints, "$grid-breakpoints");
 // @include _assert-starts-at-zero($grid-breakpoints, "$grid-breakpoints");
 
-
 // Grid containers
 //
 // Define the maximum width of `.container` for different screen sizes.
@@ -372,7 +368,6 @@ $enable-deprecation-messages: false;
 
 // @include _assert-ascending($container-max-widths, "$container-max-widths");
 
-
 // Grid columns
 //
 // Set the number of columns and specify the width of the gutters.
@@ -386,7 +381,6 @@ $enable-deprecation-messages: false;
 // Container padding
 
 // $container-padding-x: $grid-gutter-width / 2;
-
 
 // Components
 //
@@ -552,7 +546,6 @@ $enable-deprecation-messages: false;
 // $icon-size-lg:    $icon-size-base * 1.25;
 // $icon-size-xl:    $icon-size-base * 1.5;
 
-
 // Tables
 //
 // Customizes the `.table` component with basic values, each used across all table variations.
@@ -605,7 +598,6 @@ $enable-deprecation-messages: false;
 //   "dark":       $dark,
 // );
 // scss-docs-end table-variables
-
 
 // Buttons + Forms
 //
@@ -685,7 +677,6 @@ $enable-deprecation-messages: false;
 //   "dark": btn-color-map($dark, $dark)
 // );
 // scss-docs-end button-variables
-
 
 // Forms
 // scss-docs-start form-variables
@@ -936,7 +927,6 @@ $enable-deprecation-messages: false;
 // $zindex-tooltip:                    1070;
 // scss-docs-end zindex-stack
 
-
 // Navs
 // scss-docs-start nav-variables
 // $nav-link-padding-y:                .5rem;
@@ -1049,7 +1039,6 @@ $enable-deprecation-messages: false;
 // $dropdown-dark-link-disabled-color: $gray-500;
 // $dropdown-dark-header-color:        $gray-500;
 // scss-docs-end dropdown-variables
-
 
 // Pagination
 // scss-docs-start pagination-variables
@@ -1169,7 +1158,6 @@ $enable-deprecation-messages: false;
 // $form-feedback-tooltip-opacity:       $tooltip-opacity;
 // $form-feedback-tooltip-border-radius: $tooltip-border-radius;
 
-
 // Popovers
 // scss-docs-start popover-variables
 // $popover-font-size:                 $font-size-sm;
@@ -1197,7 +1185,6 @@ $enable-deprecation-messages: false;
 // $popover-arrow-outer-color:         fade-in($popover-border-color, .05);
 // scss-docs-end popover-variables
 
-
 // Toasts
 // scss-docs-start toast-variables
 // $toast-max-width:                   350px;
@@ -1217,7 +1204,6 @@ $enable-deprecation-messages: false;
 // $toast-header-border-color:         rgba(0, 0, 0, .05);
 // scss-docs-end toast-variables
 
-
 // Badges
 // scss-docs-start badge-variables
 // $badge-font-size:                   .75em;
@@ -1231,7 +1217,6 @@ $enable-deprecation-messages: false;
 // $badge-padding-y-sm:                .3em;
 // $badge-padding-x-sm:                .5em;
 // scss-docs-end badge-variables
-
 
 // Modals
 // scss-docs-start modal-variables
@@ -1275,7 +1260,6 @@ $enable-deprecation-messages: false;
 // $modal-transition:                  transform .3s ease-out;
 // $modal-scale-transform:             scale(1.02);
 // scss-docs-end modal-variables
-
 
 // Avatars
 // scss-docs-start avatar-variables
@@ -1342,7 +1326,6 @@ $enable-deprecation-messages: false;
 // );
 // scss-docs-end callout-variables
 
-
 // Progress bars
 
 // scss-docs-start progress-variables
@@ -1395,7 +1378,6 @@ $enable-deprecation-messages: false;
 //   "dark": list-group-color-map($dark)
 // );
 // scss-docs-end list-group-variables
-
 
 // Header
 // scss-docs-start header-variables
@@ -1457,7 +1439,6 @@ $enable-deprecation-messages: false;
 // $subheader-disabled-color:         $disabled-dark;
 // scss-docs-end subheader-default-themes
 
-
 // Image thumbnails
 
 // $thumbnail-padding:                 .25rem;
@@ -1467,12 +1448,10 @@ $enable-deprecation-messages: false;
 // $thumbnail-border-radius:           $border-radius;
 // $thumbnail-box-shadow:              $box-shadow-sm;
 
-
 // Figures
 
 // $figure-caption-font-size:          $small-font-size;
 // $figure-caption-color:              $gray-600;
-
 
 // Breadcrumbs
 // scss-docs-start breadcrumb-variables
@@ -1637,7 +1616,6 @@ $enable-deprecation-messages: false;
 // $spinner-border-width-sm: .2em;
 // scss-docs-end spinner-variables
 
-
 // Close
 // scss-docs-start close-variables
 // $btn-close-width:            1em;
@@ -1667,15 +1645,14 @@ $enable-deprecation-messages: false;
 
 // $pre-color:                         unset;
 
-@media (min-width: 769px){
-  .mdc-dialog__surface {
-    margin-left: 250px;
-
-  }
+@media (min-width: 769px) {
+    .mdc-dialog__surface {
+        margin-left: 250px;
+    }
 }
 .mat-mdc-dialog-surface {
-  max-width: 400px !important;
+    max-width: 400px !important;
 }
 .mdc-dialog__surface {
-  max-width: 300px;
+    max-width: 300px;
 }

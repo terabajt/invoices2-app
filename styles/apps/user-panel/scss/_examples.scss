@@ -1,122 +1,122 @@
 .callout-info {
-  background-color: $light-50 !important;
-
-  @at-root .dark-theme & {
-    background-color: rgba(255, 255, 255, .1) !important;
-  }
-}
-
-.example {
-  &:not(:first-child) {
-    margin-top: 1.5rem;
-  }
-
-  .tab-content {
     background-color: $light-50 !important;
 
     @at-root .dark-theme & {
-      background-color: rgba(255, 255, 255, .1) !important;
+        background-color: rgba(255, 255, 255, 0.1) !important;
     }
-  }
+}
 
-  code[class*="language-"],
-  pre[class*="language-"] {
-    font-size: .875rem !important;
-  }
-
-  :not(pre) > code[class*="language-"],
-  pre[class*="language-"] {
-    background: transparent;
-  }
-
-  & + p,
-  & + h2,
-  & + h3,
-  & + h4,
-  & + h5,
-  & + h6 {
-    margin-top: 1.5rem;
-  }
-
-  // Components examples
-  .preview,
-  .preview .col {
-    + p {
-      margin-top: 2rem;
+.example {
+    &:not(:first-child) {
+        margin-top: 1.5rem;
     }
 
-    > .form-control {
-      + .form-control {
-        margin-top: .5rem;
-      }
+    .tab-content {
+        background-color: $light-50 !important;
+
+        @at-root .dark-theme & {
+            background-color: rgba(255, 255, 255, 0.1) !important;
+        }
     }
 
-    > .nav + .nav,
-    > .alert + .alert,
-    > .navbar + .navbar,
-    > .progress + .progress {
-      margin-top: 1rem;
+    code[class*='language-'],
+    pre[class*='language-'] {
+        font-size: 0.875rem !important;
     }
 
-    > .dropdown-menu {
-      position: static;
-      display: block;
+    :not(pre) > code[class*='language-'],
+    pre[class*='language-'] {
+        background: transparent;
     }
 
-    > :last-child {
-      margin-bottom: 0;
+    & + p,
+    & + h2,
+    & + h3,
+    & + h4,
+    & + h5,
+    & + h6 {
+        margin-top: 1.5rem;
     }
 
-    // Images
-    > svg + svg,
-    > img + img {
-      margin-left: .5rem;
-    }
+    // Components examples
+    .preview,
+    .preview .col {
+        + p {
+            margin-top: 2rem;
+        }
 
-    // Buttons
-    > .btn,
-    > .btn-group {
-      margin: .25rem .125rem;
-    }
-    > .btn-toolbar + .btn-toolbar {
-      margin-top: .5rem;
-    }
+        > .form-control {
+            + .form-control {
+                margin-top: 0.5rem;
+            }
+        }
 
-    // List groups
-    > .list-group {
-      max-width: 400px;
-    }
+        > .nav + .nav,
+        > .alert + .alert,
+        > .navbar + .navbar,
+        > .progress + .progress {
+            margin-top: 1rem;
+        }
 
-    > [class*="list-group-horizontal"] {
-      max-width: 100%;
-    }
+        > .dropdown-menu {
+            position: static;
+            display: block;
+        }
 
-    // Navbars
-    .fixed-top,
-    .sticky-top {
-      position: static;
-      margin: -1rem -1rem 1rem;
-    }
+        > :last-child {
+            margin-bottom: 0;
+        }
 
-    .fixed-bottom {
-      position: static;
-      margin: 1rem -1rem -1rem;
-    }
+        // Images
+        > svg + svg,
+        > img + img {
+            margin-left: 0.5rem;
+        }
 
-    @include media-breakpoint-up(sm) {
-      .fixed-top,
-      .sticky-top {
-        margin: -1.5rem -1.5rem 1rem;
-      }
-      .fixed-bottom {
-        margin: 1rem -1.5rem -1.5rem;
-      }
-    }
+        // Buttons
+        > .btn,
+        > .btn-group {
+            margin: 0.25rem 0.125rem;
+        }
+        > .btn-toolbar + .btn-toolbar {
+            margin-top: 0.5rem;
+        }
 
-    // Pagination
-    .pagination {
-      margin-top: .5rem;
-      margin-bottom: .5rem;
+        // List groups
+        > .list-group {
+            max-width: 400px;
+        }
+
+        > [class*='list-group-horizontal'] {
+            max-width: 100%;
+        }
+
+        // Navbars
+        .fixed-top,
+        .sticky-top {
+            position: static;
+            margin: -1rem -1rem 1rem;
+        }
+
+        .fixed-bottom {
+            position: static;
+            margin: 1rem -1rem -1rem;
+        }
+
+        @include media-breakpoint-up(sm) {
+            .fixed-top,
+            .sticky-top {
+                margin: -1.5rem -1.5rem 1rem;
+            }
+            .fixed-bottom {
+                margin: 1rem -1.5rem -1.5rem;
+            }
+        }
+
+        // Pagination
+        .pagination {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
     }
-  }
 }

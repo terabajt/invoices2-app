@@ -1,36 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
 // If you want to override variables do it here
-@import "variables";
+@import 'variables';
 
 $enable-ltr: true;
 $enable-rtl: true;
 
 // Import styles with default layout.
-@import "../../../../node_modules/@coreui/coreui/scss/coreui.scss";
+@import '../../../../node_modules/@coreui/coreui/scss/coreui.scss';
 
 // Import Chart.js custom tooltips styles
-@import "../../../../node_modules/@coreui/chartjs/scss/coreui-chartjs.scss";
+@import '../../../../node_modules/@coreui/chartjs/scss/coreui-chartjs.scss';
 
-
-
-@import "layout";
+@import 'layout';
 
 // Some temp fixes
-@import "fixes";
+@import 'fixes';
 
 // Prism.js
-@import "examples";
+@import 'examples';
 
 // If you want to add something do it here
-@import "custom";
-
+@import 'custom';
 
 //Repair some problem
-c-sidebar-nav-link-content, html:not([dir=rtl]) .sidebar-nav .nav-group-items .nav-link {
-  font-size: 0.8rem;
-  margin-left: 15px;
+c-sidebar-nav-link-content,
+html:not([dir='rtl']) .sidebar-nav .nav-group-items .nav-link {
+    font-size: 0.8rem;
+    margin-left: 15px;
 }
-.mdc-button--raised{
-  margin-left: 10px !important;
-
+.mdc-button--raised {
+    margin-left: 10px !important;
 }

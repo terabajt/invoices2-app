@@ -29,5 +29,9 @@ export class UsersEffects {
             })
         )
     );
-    constructor(private actions$: Actions, private localstorageService: LocalstorageService, private usersService: UsersService) {}
+    constructor(
+        private actions$: Actions,
+        private localstorageService: LocalstorageService,
+        private usersService: UsersService
+    ) {}
 }

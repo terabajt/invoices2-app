@@ -1,1 +1,20 @@
-.chartjs-tooltip-body-item>td,.ngx-charts>td{padding-bottom:0 !important;padding-top:0 !important;font-size:smaller}.ngx-charts{margin-top:20px;margin-bottom:20px;background-color:#fff}.ngx-charts-outer{max-width:80% !important;width:80% !important;height:auto !important}.custom-chart-container{overflow:auto;max-height:400px !important}
+.chartjs-tooltip-body-item > td,
+.ngx-charts > td {
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    font-size: smaller;
+}
+.ngx-charts {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background-color: #fff;
+}
+.ngx-charts-outer {
+    max-width: 80% !important;
+    width: 80% !important;
+    height: auto !important;
+}
+.custom-chart-container {
+    overflow: auto;
+    max-height: 400px !important;
+}
