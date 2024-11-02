@@ -14,9 +14,7 @@ export class InvoicesService {
     apiURLInvoices = environment.apiURL + 'invoices';
     apiURLItems = 'entryitem';
 
-    constructor(
-        private http: HttpClient,
-    ) {}
+    constructor(private http: HttpClient) {}
     getInvoices(userId: string): Observable<Invoice[]> {
         return this.http.get<Invoice[]>(`${this.apiURLInvoices}/foruser/${userId}`);
     }

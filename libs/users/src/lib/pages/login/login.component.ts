@@ -17,7 +17,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class LoginComponent implements OnInit, OnDestroy {
     floatLabelControl = new FormControl('auto' as FloatLabelType);
     loginFormGroup: FormGroup = new FormGroup({});
-    endsubs$: Subject<{ email: string, password: string }> = new Subject();
+    endsubs$: Subject<{ email: string; password: string }> = new Subject();
     authError = false;
     errorMessage = 'E-mail albo hasło jest nieprawidłowe';
     footerYear!: number;

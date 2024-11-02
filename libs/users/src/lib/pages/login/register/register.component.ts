@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { LocalstorageService} from '../../../services/localstorage.services'
-import {  AuthService } from '../../../services/auth.service';
-import { UsersService  } from '../../../services/users.service';
+import { LocalstorageService } from '../../../services/localstorage.services';
+import { AuthService } from '../../../services/auth.service';
+import { UsersService } from '../../../services/users.service';
 
 import { FloatLabelType } from '@angular/material/form-field';
 

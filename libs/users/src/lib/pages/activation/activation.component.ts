@@ -34,7 +34,7 @@ export class ActivationComponent implements OnInit {
         this.route.params.pipe().subscribe((params) => {
             if (params['token']) {
                 this.userService.activateUser(params['token']).subscribe({
-                    next: (response: BackendJSONResponse ) => {
+                    next: (response: BackendJSONResponse) => {
                         this.isInfo = true;
                         if (response.message === 'User activated successfully') this.infoMessage = 'Użytkownik został aktywowany prawidłowo.';
                         setTimeout(() => {

@@ -17,7 +17,6 @@ export class LoggedUserInfoComponent implements OnInit {
         this._initUser();
     }
 
-
     private _initUser() {
         this.usersService.observeCurrentUser().subscribe((user) => {
             if (user && user.id) {

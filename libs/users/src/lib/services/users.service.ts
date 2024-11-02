@@ -8,12 +8,10 @@ import * as countriesLib from 'i18n-iso-countries';
 import { BackendJSONResponse } from '@invoice2-team/shared';
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
-
 @Injectable({
     providedIn: 'root'
 })
 export class UsersService {
-
     initAppSession() {
         this.usersFacade.buildUserSession();
     }
@@ -63,8 +61,7 @@ export class UsersService {
     isCurrentUserAuth() {
         return this.usersFacade.isAuthenticated$;
     }
-  activateUser(token: string): Observable<BackendJSONResponse> {
-    return this.http.get<BackendJSONResponse>(`${this.apiURLActivation}?token=${token}`);
-  }
-
+    activateUser(token: string): Observable<BackendJSONResponse> {
+        return this.http.get<BackendJSONResponse>(`${this.apiURLActivation}?token=${token}`);
+    }
 }
