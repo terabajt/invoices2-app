@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { UsersService } from '@invoice2-team/users';
+import { UsersService } from '../../services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
 import { BackendJSONResponse } from '@invoice2-team/shared';
 
