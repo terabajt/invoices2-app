@@ -1,0 +1,208 @@
+<div *ngIf="isLoadingResults">
+    <mat-spinner class="spinner" style="margin: 0 auto"></mat-spinner>
+</div>
+
+<mat-card class="invoice-card" *ngIf="form">
+    <mat-card-header>
+        <mat-card-title>Podgląd faktury</mat-card-title>
+        <mat-card-subtitle *ngIf="editMode">Faktura nr: {{ invoiceNumber }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-actions align="end">
+        <button mat-raised-button color="primary" (click)="onSaveForm()" [disabled]="form.invalid">{{ editMode ? 'Zapisz' : 'Dodaj' }}</button>
+        <button mat-raised-button color="warn" (click)="showDialog()">Anuluj</button>
+        <button mat-raised-button color="accent" *ngIf="editMode" (click)="onPrint()">Drukuj</button>
+    </mat-card-actions>
+    <mat-card-content>
+        <div class="form-container">
+            <form [formGroup]="form">
+                <div class="form-fields row">
+                    <div class="col-md-6">
+                        <mat-card>
+                            <mat-card-header>
+                                <h2>Dane podstawowe:</h2>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <mat-form-field *ngIf="!editMode" class="col-12" [floatLabel]="getFloatLabelValue()">
+                                    <mat-label>Numer Faktury</mat-label>
+                                    <input formControlName="invoiceNumber" matInput placeholder="Numer faktury" />
+                                    <mat-error *ngIf="form.get('invoiceNumber')?.hasError('required')">Proszę podać numer faktury.</mat-error>
+                                    <mat-error *ngIf="form.get('invoiceNumber')?.hasError('pattern')"
+                                        >Numer faktury dostępny jest w formacie: "FV/NN/RRRR"</mat-error
+                                    >
+                                </mat-form-field>
+                                <mat-form-field class="col-6" [floatLabel]="getFloatLabelValue()">
+                                    <mat-label>Data wystawienia</mat-label>
+                                    <input formControlName="invoiceDate" matInput [matDatepicker]="invoiceDate" placeholder="Data wystawienia" />
+                                    <mat-datepicker-toggle matSuffix [for]="invoiceDate"></mat-datepicker-toggle>
+                                    <mat-datepicker #invoiceDate></mat-datepicker>
+                                    <mat-error>Proszę wybrać datę wystawienia faktury.</mat-error>
+                                </mat-form-field>
+                                <mat-form-field class="col-6" [floatLabel]="getFloatLabelValue()">
+                                    <mat-label>Data płatności</mat-label>
+                                    <input formControlName="dueDate" matInput [matDatepicker]="dueDatePicker" placeholder="Data płatności" />
+                                    <mat-datepicker-toggle matSuffix [for]="dueDatePicker"></mat-datepicker-toggle>
+                                    <mat-datepicker #dueDatePicker></mat-datepicker>
+                                    <mat-error>Proszę wybrać datę płatności.</mat-error>
+                                </mat-form-field>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                    <div class="col-md-6">
+                        <mat-card>
+                            <mat-card-header>
+                                <h2>Klient:</h2>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <mat-form-field class="col-12" [floatLabel]="getFloatLabelValue()">
+                                    <mat-label>Klient</mat-label>
+                                    <mat-select formControlName="customer" name="customer" (selectionChange)="getCurrentClient(form.value.customer)">
+                                        <invoice2-team-button-add-new-client [hidden]="customersName.length > 0"></invoice2-team-button-add-new-client>
+                                        <mat-option *ngFor="let customer of customersName" [value]="customer.id">{{ customer.name }}</mat-option>
+                                    </mat-select>
+
+                                    <invoice2-team-button-add-new-client [hidden]="customersName.length > 0"></invoice2-team-button-add-new-client>
+                                    <mat-error>Proszę wybrać klienta.</mat-error>
+                                </mat-form-field>
+                                <div *ngIf="currentCustomer">
+                                    <h3>Nazwa: {{ currentCustomer.name }}</h3>
+                                    <p>NIP: {{ currentCustomer.taxNumber }}</p>
+                                    <p>Adres: {{ currentCustomer.address1 + ' ' + currentCustomer.address2 }}</p>
+                                    <p>{{ currentCustomer.zip + ' ' + currentCustomer.city }}</p>
+                                    <p>E-mail: {{ currentCustomer.email }}</p>
+                                    <p>Telefon: {{ currentCustomer.phone }}</p>
+                                </div>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+                <mat-card class="mt-4">
+                    <mat-card-header>
+                        <mat-card-title>Pozycje faktury</mat-card-title>
+                    </mat-card-header>
+                    <mat-card-actions align="end">
+                        <button mat-raised-button color="accent" [disabled]="form.invalid" (click)="addEntryItem()">Dodaj pozycje</button>
+                    </mat-card-actions>
+                    <mat-card-content>
+                        <div class="form-fields row" formArrayName="entryItems" style="font-size: 18px">
+                            <ng-container *ngFor="let item of getControls(); let i = index">
+                                <div [formGroupName]="i">
+                                    <mat-card class="mt-3 mb-3">
+                                        <mat-card-header>
+                                            <span>{{ i + 1 + '.' }}</span></mat-card-header
+                                        >
+                                        <mat-card-content>
+                                            <div class="row">
+                                                <mat-form-field class="col-10 col-md-2">
+                                                    <mat-label>Nazwa</mat-label>
+                                                    <input minlength="3" maxlength="50" formControlName="nameEntry" matInput placeholder="Nazwa" />
+                                                    <mat-error *ngIf="getControls()[i].get('nameEntry')?.hasError('required')">Proszę podać nazwę.</mat-error>
+                                                    <mat-error *ngIf="getControls()[i].get('nameEntry')?.hasError('minlength')"
+                                                        >Nazwa musi zawierać minimalnie 3 znaki.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('nameEntry')?.hasError('maxlength')"
+                                                        >Nazwa musi zawierać maksymalnie 50 znaków.</mat-error
+                                                    >
+                                                </mat-form-field>
+                                                <mat-form-field class="col-6 col-md-2">
+                                                    <mat-label>Ilość</mat-label>
+                                                    <input type="number" min="1" maxlength="50" formControlName="quantityEntry" matInput placeholder="Ilość" />
+                                                    <mat-error *ngIf="getControls()[i].get('quantityEntry')?.hasError('required')"
+                                                        >Proszę podać ilość sztuk.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('quantityEntry')?.hasError('min')"
+                                                        >Liczba musi być większa niż zero.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('quantityEntry')?.hasError('maxlength')"
+                                                        >Wartość musi zawierać do 50 znaków.</mat-error
+                                                    >
+                                                </mat-form-field>
+                                                <mat-form-field class="col-6 col-md-2">
+                                                    <mat-label>Kwota NETTO</mat-label>
+                                                    <input
+                                                        type="number"
+                                                        min="1"
+                                                        maxlength="50"
+                                                        step="0.01"
+                                                        formControlName="netAmountEntry"
+                                                        matInput
+                                                        placeholder="Kwota NETTO"
+                                                    />
+                                                    <span matTextSuffix>zł&nbsp;</span>
+                                                    <mat-error *ngIf="getControls()[i].get('netAmountEntry')?.hasError('required')"
+                                                        >Proszę podać cenę NETTO.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('netAmountEntry')?.hasError('min')"
+                                                        >Liczba musi być większa niż zero.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('netAmountEntry')?.hasError('maxlength')"
+                                                        >Ilość musi zawierać do 50 znaków.</mat-error
+                                                    >
+                                                </mat-form-field>
+                                                <mat-form-field class="col-6 col-md-2">
+                                                    <mat-label>Stawka podatku</mat-label>
+                                                    <mat-select formControlName="taxEntry">
+                                                        <mat-option value="0">0%</mat-option>
+                                                        <mat-option value="7">7%</mat-option>
+                                                        <mat-option value="8">8%</mat-option>
+                                                        <mat-option value="23">23%</mat-option>
+                                                    </mat-select>
+                                                    <mat-error>Proszę wybrać VAT.</mat-error>
+                                                </mat-form-field>
+                                                <mat-form-field class="col-6 col-md-2">
+                                                    <mat-label>Kwota BRUTTO</mat-label>
+                                                    <input
+                                                        type="number"
+                                                        min="1"
+                                                        maxlength="50"
+                                                        step="0.01"
+                                                        formControlName="grossEntry"
+                                                        matInput
+                                                        placeholder="Kwota BRUTTO"
+                                                    />
+                                                    <span matTextSuffix>zł&nbsp;</span>
+                                                    <mat-error *ngIf="getControls()[i].get('grossEntry')?.hasError('required')"
+                                                        >Proszę podać cenę BRUTTO.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('grossEntry')?.hasError('min')"
+                                                        >Liczba musi być większa niż zero.</mat-error
+                                                    >
+                                                    <mat-error *ngIf="getControls()[i].get('grossEntry')?.hasError('maxlength')"
+                                                        >Ilość musi zawierać do 50 znaków.</mat-error
+                                                    >
+                                                </mat-form-field>
+                                                <div class="invoice-card-button col-6 col-md-1">
+                                                    <button (click)="removeEntryItem(i)" mat-icon-button color="warn" aria-label="Usuń">
+                                                        <mat-icon>delete</mat-icon>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </mat-card-content>
+                                    </mat-card>
+                                </div>
+                            </ng-container>
+                        </div>
+                    </mat-card-content>
+                </mat-card>
+                <div class="row mt-4">
+                    <div class="col-9 col-md-4">
+                        <mat-card>
+                            <mat-card-header>
+                                <h3>Podsumowanie:</h3>
+                            </mat-card-header>
+                            <mat-card-content>
+                                <p>Wartość NETTO: {{ displayNetSum | currency }}</p>
+                                <p>Podatek VAT: {{ displayGrossSum - displayNetSum | currency }}</p>
+                                <p>Wartość BRUTTO: {{ displayGrossSum | currency }}</p>
+                            </mat-card-content>
+                        </mat-card>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </mat-card-content>
+    <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="onSaveForm()" [disabled]="form.invalid">{{ editMode ? 'Zapisz' : 'Dodaj' }}</button>
+        <button mat-raised-button color="warn" (click)="showDialog()">Anuluj</button>
+        <button mat-raised-button color="accent" *ngIf="editMode" (click)="onPrint()">Drukuj</button>
+    </mat-card-actions>
+</mat-card>

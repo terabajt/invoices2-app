@@ -1,0 +1,22 @@
+<c-card-body class="custom-chart-container chart-center">
+    <c-row>
+        <c-col sm="5" class="mb-4">
+            <h4 class="card-title mb-0" id="traffic">Zestawienie sprzedaży - wykres kołowy</h4>
+            <div class="small text-medium-emphasis">Suma z miesięcy</div>
+        </c-col>
+    </c-row>
+    <ngx-charts-pie-chart
+        [results]="single"
+        [legend]="true"
+        [legendPosition]="below"
+        [tooltipDisabled]="true"
+        [explodeSlices]="true"
+        [gradient]="true"
+        [doughnut]="false"
+        [animations]="true"
+        [labels]="true"
+        [maxLabelLength]="13"
+        class="mb-4 card mr-5 custom-chart"
+    >
+    </ngx-charts-pie-chart>
+</c-card-body>
