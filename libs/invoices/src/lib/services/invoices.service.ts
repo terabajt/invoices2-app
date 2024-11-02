@@ -1,10 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from '@invoice2-team/invoices';
+import { BackendJSONResponse, environment } from '@invoice2-team/shared';
 import { Observable, throwError } from 'rxjs';
 import { Invoice } from '../models/invoice';
 import { EntryItem } from '../models/entryItem';
-import { LocalstorageService } from '@invoice2-team/users';
 import { catchError } from 'rxjs/operators';
 import mongoose from 'mongoose';
 
@@ -17,7 +16,6 @@ export class InvoicesService {
 
     constructor(
         private http: HttpClient,
-        private localstorageService: LocalstorageService
     ) {}
     getInvoices(userId: string): Observable<Invoice[]> {
         return this.http.get<Invoice[]>(`${this.apiURLInvoices}/foruser/${userId}`);
@@ -65,7 +63,7 @@ export class InvoicesService {
         });
 
         return this.http.get<Record<number, number>>(`${this.apiURLInvoices}/statistics/${userID}`, { headers }).pipe(
-            catchError((error: any) => {
+            catchError((error: BackendJSONResponse) => {
                 console.error('Błąd w żądaniu getMonthlyGrossSums:', error);
                 return throwError('Wystąpił błąd w żądaniu getMonthlyGrossSums.');
             })
@@ -87,7 +85,7 @@ export class InvoicesService {
         });
 
         return this.http.get<Record<number, number>>(`${this.apiURLInvoices}/statistics/${userID}`, { headers }).pipe(
-            catchError((error: any) => {
+            catchError((error: BackendJSONResponse) => {
                 console.error('Błąd w żądaniu getYearlyGrossSums:', error);
                 return throwError('Wystąpił błąd w żądaniu getYearlyGrossSums.');
             })

@@ -1,7 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router, NavigationEnd } from '@angular/router';
+import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.services';
@@ -17,7 +17,7 @@ import { ChangeDetectorRef } from '@angular/core';
 export class LoginComponent implements OnInit, OnDestroy {
     floatLabelControl = new FormControl('auto' as FloatLabelType);
     loginFormGroup: FormGroup = new FormGroup({});
-    endsubs$: Subject<any> = new Subject();
+    endsubs$: Subject<{ email: string, password: string }> = new Subject();
     authError = false;
     errorMessage = 'E-mail albo hasło jest nieprawidłowe';
     footerYear!: number;

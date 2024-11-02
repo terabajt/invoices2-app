@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from '../models/customer';
-import { environment } from '@invoice2-team/invoices';
+import { environment } from '@invoice2-team/shared';
 
 @Injectable({
     providedIn: 'root'

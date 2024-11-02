@@ -2,11 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { Subject } from 'rxjs';
-import { AuthService } from '../../../services/auth.service';
-import { LocalstorageService } from '../../../services/localstorage.services';
+import { LocalstorageService, UsersService, AuthService } from '@invoice2-team/users';
 import { FloatLabelType } from '@angular/material/form-field';
-import { UsersService } from '../../../services/users.service';
 
 @Component({
     selector: 'invoice2-team-register',
@@ -17,7 +14,7 @@ export class RegisterComponent implements OnInit {
     loginFormGroup: FormGroup = new FormGroup({});
     authError = false;
     errorMessage = 'E-mail albo hasło jest nieprawidłowe';
-    footerYear: any;
+    footerYear: number = 0;
     infoMessage!: string;
     ifInfo!: boolean;
 
