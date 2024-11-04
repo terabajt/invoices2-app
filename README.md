@@ -9,6 +9,9 @@ This expanded description provides a comprehensive overview of the invoicing app
 You can try out the application at the following URL:
 [https://invoices2.ewebpartner.pl/](https://invoices2.ewebpartner.pl/)
 
+
+![Short app preview](https://raw.githubusercontent.com/terabajt/invoices2-app/e7e22a3d65756aa9638be360eea9329548164894/public/images/invoices2-app-gif.gif)
+
 # Assumptions
 
 The application is used to issue invoices online.
@@ -54,7 +57,7 @@ The application is used to issue invoices online.
 1. Clone the repository:
 
 ```bash
-  git clone https://github.com/terabajt/invoices2.git
+  git clone https://github.com/terabajt/invoices2-app.git
 ```
 
 2. Navigate to the project directory:
