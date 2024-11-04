@@ -1,18 +1,19 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FloatLabelType } from '@angular/material/form-field';
 import { Router } from '@angular/router';
 import { Subject, takeUntil } from 'rxjs';
+
 import { AuthService } from '../../services/auth.service';
 import { LocalstorageService } from '../../services/localstorage.services';
-import { FloatLabelType } from '@angular/material/form-field';
 import { UsersService } from '../../services/users.service';
-import { ChangeDetectorRef } from '@angular/core';
 
 @Component({
     selector: 'invoice2-team-login',
     templateUrl: './login.component.html',
-    styles: []
+    styles: [],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginComponent implements OnInit, OnDestroy {
     floatLabelControl = new FormControl('auto' as FloatLabelType);

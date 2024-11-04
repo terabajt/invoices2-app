@@ -1,8 +1,10 @@
-<p *ngIf="user" class="app-header__info wrapper">
-    Twoje faktury online. Jesteś zalogowany jako:
-    <span
-        >{{ user ? user.email : 'Brak nazwy' }}
-        Firma:
-        {{ user ? user.name : 'Brak nazwy' }}</span
-    >
-</p>
+@if (user) {
+    <p class="app-header__info wrapper">
+        Twoje faktury online. Jesteś zalogowany jako:
+        <span
+            >{{ user ? user.email : 'Brak nazwy' }}
+            Firma:
+            {{ user ? user.name : 'Brak nazwy' }}</span
+        >
+    </p>
+}

@@ -1,8 +1,9 @@
 import { Route } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/login/register/register.component';
+
 import { ActivationComponent } from './pages/activation/activation.component';
+import { LoginComponent } from './pages/login/login.component';
 import { LogoutComponent } from './pages/login/logout/logout.component';
+import { RegisterComponent } from './pages/login/register/register.component';
 
 export const usersRoutes: Route[] = [
     {

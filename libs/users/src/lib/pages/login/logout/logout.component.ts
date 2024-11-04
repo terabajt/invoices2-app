@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
 import { AuthService } from '../../../services/auth.service';
 
 @Component({
     selector: 'invoice2-team-logout',
-    template: ''
+    template: '',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LogoutComponent implements OnInit {
     constructor(

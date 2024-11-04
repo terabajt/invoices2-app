@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
-import { UsersService } from '../../services/users.service';
 import { HttpErrorResponse } from '@angular/common/http';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { BackendJSONResponse } from '@invoice2-team/shared';
+
+import { UsersService } from '../../services/users.service';
 
 @Component({
     selector: 'invoice2-team-activation',
     templateUrl: './activation.component.html',
-    styles: []
+    styles: [],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ActivationComponent implements OnInit {
     footerYear!: number;

@@ -1,21 +1,21 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule } from '@angular/router';
-import { usersRoutes } from './lib.routes';
-import { LoginComponent } from './pages/login/login.component';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatButtonModule } from '@angular/material/button';
+import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { MatButtonModule } from '@angular/material/button';
-
-import { MatCardModule } from '@angular/material/card';
-import { StoreModule } from '@ngrx/store';
+import { RouterModule } from '@angular/router';
 import { EffectsModule } from '@ngrx/effects';
-import * as fromUsers from './state/users.reducer';
+import { StoreModule } from '@ngrx/store';
+
+import { ActivationComponent } from './pages/activation/activation.component';
+import { LoginComponent } from './pages/login/login.component';
+import { RegisterComponent } from './pages/login/register/register.component';
 import { UsersEffects } from './state/users.effects';
 import { UsersFacade } from './state/users.facade';
-import { RegisterComponent } from './pages/login/register/register.component';
-import { ActivationComponent } from './pages/activation/activation.component';
+import * as fromUsers from './state/users.reducer';
+import { usersRoutes } from './lib.routes';
 
 const MATERIAL_MODULE = [MatCardModule, MatFormFieldModule, MatInputModule, MatButtonModule];
 

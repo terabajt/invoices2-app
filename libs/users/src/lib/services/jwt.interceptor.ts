@@ -1,8 +1,9 @@
+import { HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { HttpRequest, HttpHandler, HttpEvent, HttpInterceptor } from '@angular/common/http';
-import { Observable } from 'rxjs';
-import { LocalstorageService } from './localstorage.services';
 import { environment } from '@invoice2-team/shared';
+import { Observable } from 'rxjs';
+
+import { LocalstorageService } from './localstorage.services';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
