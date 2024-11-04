@@ -1,16 +1,17 @@
-import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
-import { Router } from '@angular/router';
-import { LocalstorageService } from '../../../services/localstorage.services';
-import { AuthService } from '../../../services/auth.service';
-import { UsersService } from '../../../services/users.service';
-
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { FloatLabelType } from '@angular/material/form-field';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../services/auth.service';
+import { LocalstorageService } from '../../../services/localstorage.services';
+import { UsersService } from '../../../services/users.service';
 
 @Component({
     selector: 'invoice2-team-register',
-    templateUrl: './register.component.html'
+    templateUrl: './register.component.html',
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RegisterComponent implements OnInit {
     floatLabelControl = new FormControl('auto' as FloatLabelType);

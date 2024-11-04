@@ -1,11 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from '../models/user';
-import { Observable } from 'rxjs';
-import { environment } from '@invoice2-team/shared';
-import { UsersFacade } from '../state/users.facade';
+import { BackendJSONResponse, environment } from '@invoice2-team/shared';
 import * as countriesLib from 'i18n-iso-countries';
-import { BackendJSONResponse } from '@invoice2-team/shared';
+import { Observable } from 'rxjs';
+
+import { User } from '../models/user';
+import { UsersFacade } from '../state/users.facade';
 declare const require: (arg0: string) => countriesLib.LocaleData;
 
 @Injectable({

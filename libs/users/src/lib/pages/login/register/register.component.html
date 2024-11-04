@@ -15,8 +15,12 @@
             <form [formGroup]="loginFormGroup">
                 <h2 class="text-center">Rejestracja</h2>
                 <p>Zarejestruj się w aplikacji Invoices2 i zacznij korzystać z aplikacji do wystawiania faktur online.</p>
-                <mat-error *ngIf="authError">{{ errorMessage }}</mat-error>
-                <p class="text-justify font-weight-bold text-success mt-2" *ngIf="ifInfo">{{ infoMessage }}</p>
+                @if (authError) {
+                    <mat-error>{{ errorMessage }}</mat-error>
+                }
+                @if (ifInfo) {
+                    <p class="text-justify font-weight-bold text-success mt-2">{{ infoMessage }}</p>
+                }
                 <div class="form-fields row">
                     <mat-form-field class="col-12" [floatLabel]="getFloatLabelValue()">
                         <mat-label>E-mail</mat-label>

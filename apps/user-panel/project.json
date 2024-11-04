@@ -2,6 +2,7 @@
     "name": "user-panel",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "projectType": "application",
+    "tags": ["scope:user-panel", "type:app"],
     "generators": {
         "@schematics/angular:component": {
             "inlineStyle": true,

@@ -3,7 +3,7 @@
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/users/src",
     "prefix": "invoice2-team",
-    "tags": [],
+    "tags": ["scope:users", "type:feature"],
     "projectType": "library",
     "targets": {
         "test": {

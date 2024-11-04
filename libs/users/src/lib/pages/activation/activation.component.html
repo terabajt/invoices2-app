@@ -12,8 +12,12 @@
     <mat-card class="login-box">
         <div class="bg-shape-2"></div>
         <mat-card-content>
-            <h2 class="text-justify font-weight-bold text-danger mt-2" *ngIf="isError">{{ errorMessage }}</h2>
-            <h2 class="text-justify font-weight-bold text-success mt-2" *ngIf="isInfo">{{ infoMessage }}</h2>
+            @if (isError) {
+                <h2 class="text-justify font-weight-bold text-danger mt-2">{{ errorMessage }}</h2>
+            }
+            @if (isInfo) {
+                <h2 class="text-justify font-weight-bold text-success mt-2">{{ infoMessage }}</h2>
+            }
         </mat-card-content>
     </mat-card>
 </div>
